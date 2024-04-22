@@ -1,22 +1,16 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchCars } from '../../store/cars/operations';
+import { useSelector } from 'react-redux';
 import CarItem from '../CarItem/CarItem';
-import { selectCars, selectError, selectIsLoading } from 'store/cars/selectors';
+import { selectCars } from 'store/cars/selectors';
 
-function CarsList() {
-  const dispatch = useDispatch();
+function CarsList({ onShowMore }) {
   const cars = useSelector(selectCars);
-  const isLoading = useSelector(selectIsLoading);
-  const error = useSelector(selectError);
-  const [page, setPage] = useState(1);
-
-  useEffect(() => {
-    console.log('Fetching cars for page: ', page);
-    dispatch(fetchCars({ page }));
-  }, [dispatch, page]);
-
-  return <div>CarsList</div>;
+  return (
+    <div>
+      {cars.map(car => (
+        <CarItem key={car._id} car={car} onShowMore={onShowMore} />
+      ))}
+    </div>
+  );
 }
 
 export default CarsList;

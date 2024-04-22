@@ -1,29 +1,39 @@
-import { configureStore } from '@reduxjs/toolkit';
-import { combineReducers } from 'redux';
+import { configureStore, combineReducers } from '@reduxjs/toolkit';
+import { favouritesReducer } from './favourites/FavSlice';
 import { persistReducer, persistStore } from 'redux-persist';
-import storage from 'redux-persist/lib/storage'; // defaults to localStorage for web
-
-import { filterReducer } from './filter/FilterSlice';
+import storage from 'redux-persist/lib/storage';
 import carsReducer from './cars/CarsSlice';
+import {
+  FLUSH,
+  REHYDRATE,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REGISTER,
+} from 'redux-persist';
 
-const persistConfig = {
-  key: 'root',
+const favouritesPersistConfig = {
+  key: 'favourites',
   storage,
-  blacklist: ['filter'],
 };
 
+const persistedFavouritesReducer = persistReducer(
+  favouritesPersistConfig,
+  favouritesReducer
+);
+
 const rootReducer = combineReducers({
-  filter: filterReducer,
   cars: carsReducer,
+  favourites: persistedFavouritesReducer,
 });
 
-const persistedReducer = persistReducer(persistConfig, rootReducer);
-
 export const store = configureStore({
-  reducer: persistedReducer,
+  reducer: rootReducer,
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
-      serializableCheck: false,
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
     }),
 });
 

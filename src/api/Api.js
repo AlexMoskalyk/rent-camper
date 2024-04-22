@@ -12,11 +12,3 @@ export const fetchAllCars = async (page = 1, limit = 4) => {
   });
   return response.data;
 };
-
-export const fetchCarById = async id => {
-  const url = new URL(`${BASE_URL}/${id}`);
-  const response = await axios.get(url.toString(), {
-    headers: { 'Content-Type': 'application/json' },
-  });
-  return response.data;
-};

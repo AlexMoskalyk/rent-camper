@@ -1,34 +1,38 @@
-import React from 'react';
+import React, { useCallback, useEffect } from 'react';
 import ReactDOM from 'react-dom';
-import './Modal.css';
+import './Modal.scss';
 
 const Modal = ({ isOpen, onClose, children }) => {
-  if (!isOpen) return null;
-
   const handleBackdropClick = e => {
     if (e.target === e.currentTarget) {
       onClose();
     }
   };
 
-  const handleEscapeKey = e => {
-    if (e.key === 'Escape') {
-      onClose();
-    }
-  };
+  const handleEscapeKey = useCallback(
+    e => {
+      if (e.key === 'Escape') {
+        onClose();
+      }
+    },
+    [onClose]
+  );
 
-  // Подписываемся на нажатие клавиш только когда модальное окно открыто
-  React.useEffect(() => {
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    }
     window.addEventListener('keydown', handleEscapeKey);
     return () => {
       window.removeEventListener('keydown', handleEscapeKey);
+      document.body.style.overflow = 'visible';
     };
-  }, []);
+  }, [handleEscapeKey, isOpen]); //
 
   return ReactDOM.createPortal(
     <div className="modal-backdrop" onClick={handleBackdropClick}>
       <div className="modal-content">
-        {children}
+        <div className="modal-scrollable-content">{children}</div>
         <button className="modal-close" onClick={onClose}>
           ×
         </button>

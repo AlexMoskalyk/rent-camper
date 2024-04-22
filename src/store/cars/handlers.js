@@ -1,29 +1,19 @@
-export const handlePending = state => {
-  return {
-    ...state,
-    isLoading: true,
-    error: '',
-  };
-};
-export const handleRejected = (state, { error }) => {
-  return {
-    ...state,
-    isLoading: false,
-    error: error.message,
-  };
-};
-export const handleFullfieldCars = (state, { payload }) => {
-  return {
-    ...state,
-    cars: [...state.cars, ...payload],
-    isLoading: false,
-  };
+export const pendingReducer = state => {
+  state.isLoading = true;
+  state.error = null;
 };
 
-export const handleFullfieldCarById = (state, { payload }) => {
-  return {
-    ...state,
-    car: payload,
-    isLoading: false,
-  };
+export const rejectedReducer = (state, { payload }) => {
+  state.isLoading = false;
+  state.error = payload;
+};
+export const handleFulfielldCars = (state, { payload }) => {
+  state.items = [...state.items, ...payload];
+  state.isLoading = false;
+  state.totalCount = payload.length;
+};
+
+export const handleFulfielldCarById = (state, { payload }) => {
+  state.item = payload;
+  state.isLoading = false;
 };
