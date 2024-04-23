@@ -1,9 +1,6 @@
-import { useSelector } from 'react-redux';
 import CarItem from '../CarItem/CarItem';
-import { selectCars } from 'store/cars/selectors';
 
-function CarsList({ onShowMore }) {
-  const cars = useSelector(selectCars);
+function CarsList({ cars, onShowMore }) {
   return (
     <div>
       {cars.map(car => (

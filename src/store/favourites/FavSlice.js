@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = { favourites: [] };
 
 const favouritesSlice = createSlice({
-  name: 'favorites',
+  name: 'favourites',
   initialState,
   reducers: {
     addFavourite: (state, { payload }) => {
@@ -12,9 +12,7 @@ const favouritesSlice = createSlice({
     removeFavourite: (state, { payload }) => {
       return {
         ...state,
-        favourites: state.favourites.filter(
-          favouriteID => favouriteID !== payload
-        ),
+        favourites: state.favourites.filter(item => item._id !== payload._id),
       };
     },
   },
