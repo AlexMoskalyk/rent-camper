@@ -1,10 +1,10 @@
-import { Route, Routes } from "react-router-dom";
-import "./App.css";
-import MainLayout from "./layouts/MainLayout";
-import CatalogPage from "./pages/CatalogPage";
-import FavouritesPage from "./pages/FavouritesPage";
-import CarDetailsPage from "./pages/CarDetailsPage";
-import HomePage from "./pages/HomePage";
+import { Route, Routes } from 'react-router-dom';
+import './App.css';
+import MainLayout from './layouts/MainLayout';
+import CatalogPage from './pages/CatalogPage';
+import FavouritesPage from './pages/FavouritesPage';
+import CarDetailsPage from './pages/CarDetailsPage';
+import HomePage from './pages/HomePage/HomePage';
 
 function App() {
   return (
