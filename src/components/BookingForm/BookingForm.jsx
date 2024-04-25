@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+import './BookingForm.scss';
+
 function BookingForm() {
   const [formData, setFormData] = useState({
     name: '',
@@ -47,7 +49,11 @@ function BookingForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="booking-form">
+      <h3>Book your campervan now</h3>
+      <p className="booking-form-text">
+        Stay connected! We are always ready to help you.
+      </p>
       <input
         type="text"
         name="name"

@@ -1,9 +1,8 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import MainLayout from './layouts/MainLayout';
-import CatalogPage from './pages/CatalogPage';
-import FavouritesPage from './pages/FavouritesPage';
-import CarDetailsPage from './pages/CarDetailsPage';
+import CatalogPage from './pages/CatalogPage/CatalogPage';
+import FavouritesPage from './pages/FavouritesPage/FavouritesPage';
 import HomePage from './pages/HomePage/HomePage';
 
 function App() {
@@ -14,7 +13,6 @@ function App() {
           <Route index element={<HomePage />} />
           <Route path="catalog" element={<CatalogPage />} />
           <Route path="favourites" element={<FavouritesPage />} />
-          <Route path="catalog/:id" element={<CarDetailsPage />} />
         </Route>
       </Routes>
     </>

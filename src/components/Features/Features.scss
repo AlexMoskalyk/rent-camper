@@ -1,26 +1,24 @@
 @import '../../variables';
 .features-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
 }
 
 .feature-item {
+  background: var(--color-neutral-light);
+  border-radius: 20px;
+  padding: 5px 15px;
   display: flex;
   align-items: center;
-  padding: 4px 8px;
-  border: 1px solid var(--color-secondary-dark);
-  border-radius: 20px;
-  background-color: var(--color-secondary-dark);
+  gap: 5px;
+  font-size: 14px;
 }
 
 .feature-icon {
-  width: 16px;
-  height: 16px;
-  margin-right: 5px;
-}
-
-.feature-text {
-  font-size: 12px;
-  color: var(--color-primary-dark);
+  width: 20px;
+  height: 20px;
 }

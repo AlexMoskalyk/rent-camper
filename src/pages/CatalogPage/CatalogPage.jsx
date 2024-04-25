@@ -7,6 +7,8 @@ import { getCars } from 'store/cars/operations';
 import Modal from 'components/Modal/Modal';
 import CarDetails from 'components/CarDetails/CarDetails';
 
+import './CatalogPage.scss';
+
 function CatalogPage() {
   const dispatch = useDispatch();
   const cars = useSelector(selectCars);
@@ -35,14 +37,17 @@ function CatalogPage() {
   return (
     <>
       {isLoading && <Loader />}
-      <div>
-        <h1>Catalog of Cars</h1>
+      <>
         <CarsList cars={cars} onShowMore={handleShowMoreClick} />
 
-        <button onClick={handleLoadMore} disabled={isLoading}>
+        <button
+          className="load-more-btn "
+          onClick={handleLoadMore}
+          disabled={isLoading}
+        >
           Load more
         </button>
-      </div>
+      </>
 
       {isModalOpen && (
         <Modal isOpen={isModalOpen} onClose={() => setModalOpen(false)}>

@@ -12,7 +12,7 @@ function HomePage() {
   return (
     <div className="home-container">
       <h1 className="title">Choose your camper</h1>
-      <button className="load-more-btn" onClick={navigateToCatalog}>
+      <button className="choose-btn" onClick={navigateToCatalog}>
         Choose
       </button>
     </div>

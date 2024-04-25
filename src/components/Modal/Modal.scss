@@ -16,7 +16,7 @@
 .modal-content {
   background: var(--color-neutral-white);
   padding: 30px;
-  width: 800px; /* Примерная ширина */
+  width: 900px;
   height: 80vh;
   border-radius: 4px;
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
@@ -27,9 +27,9 @@
 }
 
 .modal-scrollable-content {
-  overflow-y: auto; /* Показывать прокрутку внутри этого элемента */
-  border-radius: 4px; /* Скругляем углы */
-  /* Возможно, потребуется дополнительный padding для внутреннего блока */
+  padding-right: 16px;
+  overflow-y: auto;
+  border-radius: 4px;
 }
 
 .modal-close {

@@ -3,9 +3,10 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addFavourite, removeFavourite } from 'store/favourites/FavSlice';
 import { getFavourites } from 'store/favourites/selectros';
-import { ReactComponent as StarIcon } from '../../assets/star.svg'; // Путь к SVG файлу
+import { ReactComponent as StarIcon } from '../../assets/star.svg';
 import './CarItem.scss';
 import sprite from '../../assets/sprite.svg';
+import Features from 'components/Features/Features';
 
 const CarItem = ({ car, onShowMore }) => {
   const dispatch = useDispatch();
@@ -21,27 +22,6 @@ const CarItem = ({ car, onShowMore }) => {
   };
   return (
     <div className="car-item">
-      <div>
-        <h3>{car.name}</h3>
-        <div>
-          <span>{car.price}$</span>
-          <HeartIconBtn isFavourite={isFavourite} onClick={toggleFavourite} />
-        </div>
-      </div>
-      <div>
-        <span>
-          <StarIcon />
-          {car.rating}({car.reviews.length}Reviews)
-        </span>
-        <span>
-          <svg className="icon-location">
-            <use href={`${sprite}#location`}></use>
-          </svg>
-          {car.location}
-        </span>
-      </div>
-      <p className="text-container">{car.description}</p>
-
       <img
         src={car.gallery[0]}
         alt={car.name}
@@ -50,9 +30,30 @@ const CarItem = ({ car, onShowMore }) => {
         className="car-image"
       />
       <div className="car-details">
-        <div className="car-price">${car.price}</div>
+        <div className="car-info">
+          <h3>{car.name}</h3>
+          <div>
+            <span className="car-price">{car.price}$</span>
+            <HeartIconBtn isFavourite={isFavourite} onClick={toggleFavourite} />
+          </div>
+        </div>
+        <div className="car-rating">
+          <span className="car-rating-stars">
+            <StarIcon />
+            {car.rating}({car.reviews.length}Reviews)
+          </span>
+          <span>
+            <svg className="icon-location">
+              <use href={`${sprite}#location`}></use>
+            </svg>
+            {car.location}
+          </span>
+        </div>
+        <p className="text-container">{car.description}</p>
+        <Features features={car} details={car.details} />
+
         <button className="btn-details" onClick={() => onShowMore(car)}>
-          View Details
+          Show More
         </button>
       </div>
     </div>
