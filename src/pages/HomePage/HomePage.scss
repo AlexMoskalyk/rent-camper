@@ -1,0 +1,36 @@
+@import '../../variables';
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.title {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.choose-btn {
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: 1px solid transparent;
+  outline: none;
+  cursor: pointer;
+  font-size: 1em;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+
+  &:hover {
+    color: var(--color-accent);
+    border-color: var(--color-accent);
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+}

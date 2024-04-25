@@ -1,28 +1,28 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { getCars } from './operations';
 import {
-  handleFullfieldCarById,
-  handleFullfieldCars,
-  handlePending,
-  handleRejected,
-} from './handlers';
-import { fetchCarById, fetchCars } from './operations';
+  pendingReducer,
+  rejectedReducer,
+  handleFulfielldCars,
+} from './handlers.js';
 
 const initialState = {
-  cars: [],
-  car: null,
+  items: [],
+  item: null,
   isLoading: false,
   error: null,
+  totalCount: 0,
 };
 
-export const carsSlice = createSlice({
+const carsSlice = createSlice({
   name: 'cars',
   initialState,
+
   extraReducers: builder => {
     builder
-      .addCase(fetchCars.fulfilled, handleFullfieldCars)
-      .addCase(fetchCarById.fulfilled, handleFullfieldCarById)
-      .addMatcher(action => action.type.endsWith('pending'), handlePending)
-      .addMatcher(action => action.type.endsWith('rejected'), handleRejected);
+      .addCase(getCars.fulfilled, handleFulfielldCars)
+      .addMatcher(action => action.type.endsWith('/pending'), pendingReducer)
+      .addMatcher(action => action.type.endsWith('/rejected'), rejectedReducer);
   },
 });
 

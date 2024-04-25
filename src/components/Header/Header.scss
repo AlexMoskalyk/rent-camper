@@ -1,7 +1,44 @@
-@import "../../variables.css";
+@import '../../variables.css';
 
 .nav {
+  position: sticky;
+  top: 0;
+
+  background-color: var(--color-neutral-white);
+  // z-index: 1000;
+  display: flex;
+  justify-content: center;
+  padding: 16px 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
   .active {
+    color: var(--color-accent);
+  }
+
+  .nav-link {
+    margin: 0 15px;
+    font-size: 18px;
+    font-weight: 500;
+    position: relative;
+  }
+
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: transparent;
+    transition: background-color 0.3s ease;
+  }
+
+  .nav-link:hover::after,
+  .nav-link.active::after {
+    background: var(--color-accent);
+  }
+
+  .nav-link:hover {
     color: var(--color-accent);
   }
 }

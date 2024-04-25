@@ -1,0 +1,40 @@
+@import '../../variables';
+.empty-favourites {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.empty-favourites-icon {
+  max-width: 200px;
+  margin-bottom: 20px;
+}
+
+.empty-favourites-title {
+  font-size: 24px;
+  color: var(--color-primary-dark);
+  margin-bottom: 10px;
+}
+
+.empty-favourites-text {
+  color: var(--color-secondary-dark);
+  margin-bottom: 20px;
+}
+
+.empty-favourites-link {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: var(--color-accent);
+  color: var(--color-neutral-white);
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.empty-favourites-link:hover {
+  background-color: darken(#ff4500, 10%);
+}

@@ -1,0 +1,24 @@
+@import '../../variables';
+.features-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.feature-item {
+  background: var(--color-neutral-light);
+  border-radius: 20px;
+  padding: 5px 15px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 14px;
+}
+
+.feature-icon {
+  width: 20px;
+  height: 20px;
+}

@@ -1,0 +1,150 @@
+@import '../../variables.css';
+.icon-location {
+  width: 20px;
+  height: 20px;
+}
+
+.car-name {
+  margin-bottom: 10px;
+}
+.car-rating {
+  margin-bottom: 10px;
+  .car-rating-stars {
+    margin-right: 10px;
+  }
+}
+
+.car-price {
+  font-size: 1.25rem;
+  color: var(--color-primary-dark);
+  font-weight: bold;
+
+  margin-bottom: 10px;
+}
+
+.text-container {
+  color: var(--color-secondary-dark);
+  padding: 0 16px;
+  margin-bottom: 16px;
+}
+
+.gallery-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.gallery-item {
+  flex: 0 1 calc(33% - 20px);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
+}
+
+.car-details-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+.vehicle-details {
+  background: var(--color-neutral-white);
+  border-radius: 8px;
+  padding: 16px;
+  margin-top: 20px;
+}
+
+.details-grid {
+  display: grid;
+  row-gap: 8px;
+}
+
+.detail {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.detail-value {
+  text-align: right;
+}
+
+.tab-switcher {
+  margin-bottom: 16px;
+  display: flex;
+  border-bottom: 2px solid var(--color-neutral-light);
+}
+
+.tab-button {
+  padding: 10px 20px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  position: relative;
+  font-size: 16px;
+  color: var(--color-primary-dark);
+  outline: none;
+}
+
+.tab-button:hover,
+.tab-button:focus {
+  color: var(--color-primary-dark);
+}
+
+.tab-button.active {
+  color: var(--color-accent);
+
+  /* Underline for active tab */
+  .active-underline {
+    height: 3px;
+    background-color: var(--color-accent);
+    position: absolute;
+    bottom: -2px;
+    width: 100%;
+    transition: all 0.3s ease;
+  }
+}
+.reviewer-initial-letter {
+  display: block;
+  background: var(--color-secondary-dark);
+  color: var(--color-accent);
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+.review {
+  background: var(--color-neutral-white);
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 10px;
+}
+
+.reviewer-details {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.reviewer-name {
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.reviewer-rating {
+  color: var(--color-accent-light);
+}
+
+.review-comment {
+  margin-top: 10px;
+  font-style: italic;
+}
+
+.review-header {
+  display: flex;
+  align-items: center;
+}
