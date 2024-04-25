@@ -19,9 +19,9 @@ function CatalogPage() {
 
   useEffect(() => {
     if (cars.length === 0) {
-      dispatch(getCars(page));
+      dispatch(getCars(1));
     }
-  }, []);
+  }, [cars.length, dispatch]);
 
   const handleLoadMore = () => {
     const nextPage = page + 1;
